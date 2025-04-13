@@ -24,11 +24,8 @@
 
 .input-upload__preview-item {
   position: relative;
-}
-
-.input-upload__preview {
-  padding: 10px;
-  border-radius: 10px;
+  width: 90px;
+  height: 120px;
 }
 
 .input-upload--images-drop .input-upload__preview,
@@ -40,10 +37,16 @@
   pointer-events: none;
 }
 
-.input-upload--images .input-upload__preview {
+.input-upload--images .input-upload__preview:not(:empty) {
   display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(4, 200px);
+  grid-gap: 6px;
+  grid-template-columns: repeat(2, 90px);
+  grid-auto-flow: column;
+  overflow-x: auto;
+  margin-bottom: $gutter * 2;
+  padding: 10px;
+  border-radius: $border-radius;
+  border: 1px dashed $color-dark-gray;
 }
 
 .input-upload--file .input-upload__preview {
@@ -53,11 +56,9 @@
 }
 
 .input-upload--images .input-upload__preview-item {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  margin-top: 10px;
-  width: 200px;
-  height: 150px;
-  border-radius: 10px;
+  width: 90px;
+  height: 120px;
+  border-radius: $border-radius;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,6 +131,7 @@
   height: auto;
   max-height: 100%;
   object-fit: cover;
+  border-radius: $border-radius;
 }
 
 .input-upload__preview-item-remove {
@@ -138,10 +140,11 @@
   position: absolute;
   width: 20px;
   height: 20px;
-  top: 10px;
-  right: 10px;
+  border-radius: 50%;
+  top: 5px;
+  right: 5px;
   cursor: pointer;
-  background-color: #2c39f2;
+  background-color: $color-black-pearl;
   color: #ffffff;
 }
 
@@ -277,6 +280,8 @@
 .input-upload__message {
   position: absolute;
   right: 0;
-  bottom: -5px;
-  color: #ff0000;
+  bottom: 5px;
+  font-size: 11px;
+  line-height: 100%;
+  color: $color-nero;
 }

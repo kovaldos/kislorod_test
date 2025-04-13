@@ -1,8 +1,37 @@
 
 const baseSuccessCallback = (event) => {
   event.preventDefault();
-  // В данном колбеке бэкендер, либо разработчик при необходимости будет писать запрос на отправку формы на сервер и обрабатывать возможные ошибки или успешную отправку формы на сервер
+
+  const form = event.target.closest('form');
+  if (!form) {
+    return;
+  }
+
+  const formData = new FormData(form);
+  const data = {};
+
+  formData.forEach((value, key) => {
+    if (data[key]) {
+      data[key] = [].concat(data[key], value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  console.log('🚀 Данные формы:', data);
+
+  const formContainer = form.closest('.reviews-form');
+  if (!formContainer) {
+    return;
+  }
+
+  const thanks = document.querySelector('.reviews-form__thanks');
+  thanks.classList.remove('reviews-form__thanks--is-hidden');
+  setTimeout(() => {
+    thanks.classList.add('reviews-form__thanks--is-hidden');
+  }, 3500);
 };
+
 
 const baseErrorCallback = (event) => {
   event.preventDefault();
@@ -14,7 +43,7 @@ export const callbacks = {
     // Сбросс формы
     reset: true,
     // Таймаут сброса формы
-    resetTimeout: 500,
+    resetTimeout: 3500,
     successCallback: baseSuccessCallback,
     errorCallback: baseErrorCallback,
   },

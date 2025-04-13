@@ -1,0 +1,91 @@
+mixin reviews()
+    section.section.reviews
+        .reviews__container.container
+            .reviews__content
+                h1.title.title--h1.reviews__title
+                    = reviewTitle
+                    span.reviews__count&attributes({ "aria-label": reviewCountText }) (#{reviewCount})
+
+                each review in reviews
+                    article.reviews__item.review
+                        .review__header
+                            time.reviews__date.text--size-xs(datetime=review.date)
+                                = review.date
+                            .review__rating
+                              - const maxStars = 5;
+                              - const activeStars = parseInt(review.starsRating) || 0;
+                              each _, i in Array(maxStars)
+                                - const starClass = i < activeStars ? 'is-active' : '';
+                                span.review__star(class=starClass) ★
+                            h2.title.title--h3
+                                = review.userName
+
+                        p.review__text.text--size-s
+                            = review.reviewText
+
+                        if review.images.length
+                            .review__images
+                              each img in review.images
+                                  +img("content", img.image, 'jpg', 90, 120, img.alt).review__img
+
+                        if review.responseText
+                            .review__response.review-response
+                                +icon("icon-down-right-arrow", 24, 24).review-response__arrow
+                                .review-response__content
+                                    time.reviews__date.text--size-xs(datetime=review.responseDate)
+                                        = review.responseDate
+                                    h2.reviews__title.title.title--h3
+                                        = review.responseTitle
+                                    p.review-response__text.text--size-s
+                                        = review.responseText
+                                    span.review-response__replier.text.text--size-xs
+                                        = review.replier
+
+            .reviews__form.reviews-form(data-form-validate data-callback="base")
+                h2.reviews-form__title.title.title--h2
+                    = form.title
+                form(action="#" method="post" enctype="multipart/form-data")
+                    each field in form.fields
+                        - const validation = field.validation || {}
+                        if field.inputType === "text"
+                          +custom-input(field)(
+                              data-required=validation.required,
+                              data-validate-type=validation.type,
+                              data-limitation=validation.limitation
+                              data-on-input-validate=validation.onInput
+                              data-message-base=validation.errorMessage
+                          ).reviews-form__field
+                        else if field.inputType === "radio"
+                            .reviews-form__field
+                                label.reviews-form__label= field.inputLabel
+                                - const stars = field.stars
+                                .reviews-form__rating(role="radiogroup" aria-label=field.ariaLabel, tabindex="0")
+                                  each i in stars
+                                    - let labelText = i + ' звезд' + (i === 1 ? 'а' : (i < 5 ? 'ы' : ''))
+                                    input.visually-hidden(type="radio", id="star-" + i, name="rating", value=i, aria-label=labelText)
+                                    label(for="star-" + i, title="Оценка " + i) ★
+                        else if field.inputType === "textarea"
+                            +custom-textarea(field)(
+                                data-required=validation.required,
+                                data-validate-type=validation.type,
+                                data-message-base=validation.errorMessage
+                            ).reviews-form__field
+                        else if field.inputType === "file"
+                            +custom-input({
+                              inputType: "file",
+                              inputLabel: field.inputLabel,
+                              inputName: field.inputName,
+                              inputClass: "visually-hidden",
+                              iconName: "icon-upload",
+                              iconWidth: 40,
+                              iconHeight: 40
+                            })(
+                                data-validate-type="file",
+                                data-max-size="10485760",
+                                data-upload="img"
+                            ).reviews-form__field.reviews-form__field--upload.input-upload.input-upload--images
+                    +btn(form.submit).btn--primary.btn--block
+                .reviews-form__thanks.reviews-form-thanks.reviews-form__thanks--is-hidden
+                    h2.title.title--h2.reviews-form-thanks__title= form.thanks.title
+                    p.text.text--size-s.reviews-form-thanks__text= form.thanks.text
+
