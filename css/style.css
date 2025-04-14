@@ -987,14 +987,20 @@ button,
 }
 
 .custom-input.is-valid input,
-.custom-textarea.is-valid input {
+.custom-input.is-valid textarea,
+.custom-textarea.is-valid input,
+.custom-textarea.is-valid textarea {
   border: 1px solid #22b259;
 }
 
 .custom-input.is-valid input:focus,
 .custom-input.is-valid input:hover,
+.custom-input.is-valid textarea:focus,
+.custom-input.is-valid textarea:hover,
 .custom-textarea.is-valid input:focus,
-.custom-textarea.is-valid input:hover {
+.custom-textarea.is-valid input:hover,
+.custom-textarea.is-valid textarea:focus,
+.custom-textarea.is-valid textarea:hover {
   border: 1px solid rgba(34, 178, 89, 0.5);
 }
 
