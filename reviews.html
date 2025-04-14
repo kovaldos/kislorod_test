@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>О нас — kislorod_test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="kislorod test task">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <main>
+        <section class="section reviews">
+          <div class="reviews__container container">
+            <div class="reviews__content">
+              <h1 class="title title--h1 reviews__title">Отзывы о товаре<span class="reviews__count" aria-label="Количество отзывов">(2)</span>
+              </h1>
+              <article class="reviews__item review">
+                <div class="review__header">
+                  <time class="reviews__date text--size-xs" datetime="08.09.2023">08.09.2023
+                  </time>
+                  <div class="review__rating"><span class="review__star is-active">★</span><span class="review__star is-active">★</span><span class="review__star is-active">★</span><span class="review__star is-active">★</span><span class="review__star">★</span>
+                  </div>
+                  <h2 class="title title--h3">Балашова Татьяна
+                  </h2>
+                </div>
+                <p class="review__text text--size-s">Отличное летнее платье с подкладкой, мне очень понравилось, но мне не подошло. покупала на 52 52ой, мало, на 48 или на 50 будет отлично.
+                </p>
+                <div class="review__images">
+                  <picture class="review__img">
+                    <source type="image/webp" srcset="img/content/review-img-1.webp, img/content/review-img-1@2x.webp 2x"><img src="img/content/review-img-1.jpg" srcset="img/content/review-img-1@2x.jpg 2x" width="90" height="120" alt="review image 1">
+                  </picture>
+                  <picture class="review__img">
+                    <source type="image/webp" srcset="img/content/review-img-2.webp, img/content/review-img-2@2x.webp 2x"><img src="img/content/review-img-2.jpg" srcset="img/content/review-img-2@2x.jpg 2x" width="90" height="120" alt="review image 2">
+                  </picture>
+                </div>
+                <div class="review__response review-response">
+                  <svg class="review-response__arrow" width="24" height="24" aria-hidden="true">
+                    <use xlink:href="img/sprite.svg#icon-down-right-arrow"></use>
+                  </svg>
+                  <div class="review-response__content">
+                    <time class="reviews__date text--size-xs" datetime="09.09.2023">09.09.2023
+                    </time>
+                    <h2 class="reviews__title title title--h3">Ответ магазина:
+                    </h2>
+                    <p class="review-response__text text--size-s">Здравствуйте! Спасибо за Ваш отзыв! Мы очень рады, что Вы остались довольны сервисом и качеством товаров, представленных в нашем интернет-магазине! Надеемся увидеть Вас в числе наших постоянных клиентов!
+                    </p><span class="review-response__replier text text--size-xs">С уважением, клиентский сервис интернет-магазина</span>
+                  </div>
+                </div>
+              </article>
+              <article class="reviews__item review">
+                <div class="review__header">
+                  <time class="reviews__date text--size-xs" datetime="08.09.2023">08.09.2023
+                  </time>
+                  <div class="review__rating"><span class="review__star is-active">★</span><span class="review__star is-active">★</span><span class="review__star is-active">★</span><span class="review__star is-active">★</span><span class="review__star">★</span>
+                  </div>
+                  <h2 class="title title--h3">Иванова Елена
+                  </h2>
+                </div>
+                <p class="review__text text--size-s">Отличное летнее платье с подкладкой, мне очень понравилось, но мне не подошло. покупала на 52ой, мало, на 48 или на 50 будет отлично. Еще немного текста для тестирования верстки.
+                </p>
+                <div class="review__response review-response">
+                  <svg class="review-response__arrow" width="24" height="24" aria-hidden="true">
+                    <use xlink:href="img/sprite.svg#icon-down-right-arrow"></use>
+                  </svg>
+                  <div class="review-response__content">
+                    <time class="reviews__date text--size-xs" datetime="09.09.2023">09.09.2023
+                    </time>
+                    <h2 class="reviews__title title title--h3">Ответ магазина:
+                    </h2>
+                    <p class="review-response__text text--size-s">Здравствуйте! Спасибо за Ваш отзыв! Мы очень рады, что Вы остались довольны сервисом и качеством товаров, представленных в нашем интернет-магазине! Надеемся увидеть Вас в числе наших постоянных клиентов!
+                    </p><span class="review-response__replier text text--size-xs">С уважением, клиентский сервис интернет-магазина</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="reviews__form reviews-form" data-form-validate data-callback="base">
+              <h2 class="reviews-form__title title title--h2">Оставить свой отзыв
+              </h2>
+              <form action="#" method="post" enctype="multipart/form-data">
+                <div class="custom-input reviews-form__field" data-required data-validate-type="text" data-limitation="name" data-message-base="Поле не может быть пустым">
+                  <label><span class="custom-input__label">Как вас зовут? *</span>
+                    <input type="text" name="name" placeholder="Иван Иванов">
+                  </label>
+                </div>
+                <div class="custom-input reviews-form__field" data-validate-type="email" data-on-input-validate data-message-base="Введите корректный email">
+                  <label><span class="custom-input__label">E-mail</span>
+                    <input type="text" name="e-mail" placeholder="@">
+                  </label>
+                </div>
+                <div class="custom-input reviews-form__field" data-validate-type="phone" data-on-input-validate data-message-base="Введите цифры">
+                  <label><span class="custom-input__label">Контактный телефон</span>
+                    <input type="text" name="phone" placeholder="+7">
+                  </label>
+                </div>
+                <div class="reviews-form__field">
+                  <label class="reviews-form__label">Ваша оценка</label>
+                  <div class="reviews-form__rating" role="radiogroup" aria-label="Оценка товара" tabindex="0">
+                    <input class="visually-hidden" type="radio" id="star-5" name="rating" value="5" aria-label="5 звезд">
+                    <label for="star-5" title="Оценка 5">★</label>
+                    <input class="visually-hidden" type="radio" id="star-4" name="rating" value="4" aria-label="4 звезды">
+                    <label for="star-4" title="Оценка 4">★</label>
+                    <input class="visually-hidden" type="radio" id="star-3" name="rating" value="3" aria-label="3 звезды">
+                    <label for="star-3" title="Оценка 3">★</label>
+                    <input class="visually-hidden" type="radio" id="star-2" name="rating" value="2" aria-label="2 звезды">
+                    <label for="star-2" title="Оценка 2">★</label>
+                    <input class="visually-hidden" type="radio" id="star-1" name="rating" value="1" aria-label="1 звезда">
+                    <label for="star-1" title="Оценка 1">★</label>
+                  </div>
+                </div>
+                <div class="custom-textarea reviews-form__field" data-required data-validate-type="text" data-message-base="Введите Ваш комментарий">
+                  <label><span class="custom-textarea__label">Комментарий *</span>
+                    <textarea name="comment" placeholder="Введите текст"></textarea>
+                  </label>
+                </div>
+                <div class="custom-input reviews-form__field reviews-form__field--upload input-upload input-upload--images" data-validate-type="file" data-max-size="10485760" data-upload="img">
+                  <label>
+                    <svg class="custom-input__icon" width="40" height="40" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#icon-upload"></use>
+                    </svg><span class="custom-input__label">Загрузить фотографии. Максимальный вес 10 мегабайт. 
+Расширение jpeg, png</span>
+                    <input class="visually-hidden" type="file" name="files">
+                  </label>
+                </div>
+                <button class="btn btn--primary btn--block" type="submit">Отправить</button>
+              </form>
+              <div class="reviews-form__thanks reviews-form-thanks reviews-form__thanks--is-hidden">
+                <h2 class="title title--h2 reviews-form-thanks__title">Спасибо за  ваш отзыв!</h2>
+                <p class="text text--size-s reviews-form-thanks__text">Ваш отзыв будет опубликован сразу после того, как его проверят наши сотрудники.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>
