@@ -42,11 +42,18 @@
   grid-gap: 6px;
   grid-template-columns: repeat(2, 90px);
   grid-auto-flow: column;
+  justify-content: start;
   overflow-x: auto;
   margin-bottom: $gutter * 2;
   padding: 10px;
   border-radius: $border-radius;
   border: 1px dashed $color-dark-gray;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 20px);
+  background-color: $color-default-white;
 }
 
 .input-upload--file .input-upload__preview {
@@ -283,5 +290,5 @@
   bottom: 5px;
   font-size: 11px;
   line-height: 100%;
-  color: $color-nero;
+  color: $color-cinnabar;
 }
