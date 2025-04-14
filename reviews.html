@@ -80,7 +80,7 @@
               </h2>
               <form action="#" method="post" enctype="multipart/form-data">
                 <div class="custom-input reviews-form__field" data-required data-validate-type="text" data-limitation="name" data-message-base="Поле не может быть пустым">
-                  <label><span class="custom-input__label">Как вас зовут? *</span>
+                  <label><span class="custom-input__label">Как вас зовут?</span>
                     <input type="text" name="name" placeholder="Иван Иванов">
                   </label>
                 </div>
@@ -89,7 +89,7 @@
                     <input type="text" name="e-mail" placeholder="@">
                   </label>
                 </div>
-                <div class="custom-input reviews-form__field" data-validate-type="phone" data-on-input-validate data-message-base="Введите цифры">
+                <div class="custom-input reviews-form__field" data-validate-type="phone" data-on-input-validate data-message-base="Введите корректный номер телефона">
                   <label><span class="custom-input__label">Контактный телефон</span>
                     <input type="text" name="phone" placeholder="+7">
                   </label>
@@ -110,16 +110,15 @@
                   </div>
                 </div>
                 <div class="custom-textarea reviews-form__field" data-required data-validate-type="text" data-message-base="Введите Ваш комментарий">
-                  <label><span class="custom-textarea__label">Комментарий *</span>
+                  <label><span class="custom-textarea__label">Комментарий</span>
                     <textarea name="comment" placeholder="Введите текст"></textarea>
                   </label>
                 </div>
-                <div class="custom-input reviews-form__field reviews-form__field--upload input-upload input-upload--images" data-validate-type="file" data-max-size="10485760" data-upload="img">
+                <div class="custom-input reviews-form__field reviews-form__field--upload input-upload input-upload--images" data-validate-type="file" data-max-full-size="10485760" data-upload="img">
                   <label>
                     <svg class="custom-input__icon" width="40" height="40" aria-hidden="true">
                       <use xlink:href="img/sprite.svg#icon-upload"></use>
-                    </svg><span class="custom-input__label">Загрузить фотографии. Максимальный вес 10 мегабайт. 
-Расширение jpeg, png</span>
+                    </svg><span class="custom-input__label">Загрузить фотографии. Максимальный вес 10 мегабайт. Расширение jpeg, png</span>
                     <input class="visually-hidden" type="file" name="files">
                   </label>
                 </div>

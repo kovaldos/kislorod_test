@@ -1447,11 +1447,20 @@ button,
   -ms-grid-columns: (90px)[2];
   grid-template-columns: repeat(2, 90px);
   grid-auto-flow: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: start;
   overflow-x: auto;
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 5px;
   border: 1px dashed #b1b1b1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 20px);
+  background-color: #ffffff;
 }
 
 .input-upload--file .input-upload__preview {
@@ -1720,7 +1729,7 @@ button,
   bottom: 5px;
   font-size: 11px;
   line-height: 100%;
-  color: #1a1a1a;
+  color: #ea2828;
 }
 
 h1,
@@ -1735,6 +1744,7 @@ h5 {
 .title {
   line-height: 100%;
   font-weight: 500;
+  color: #1a1a1a;
 }
 
 .title::first-letter {
@@ -1890,7 +1900,7 @@ p {
   overflow-x: auto;
 }
 
-.review__img {
+.review__img img {
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: 5px;
@@ -1936,6 +1946,7 @@ p {
 
 .review-response__replier {
   font-weight: 500;
+  color: #1a1a1a;
 }
 
 .reviews-form {
@@ -1951,6 +1962,12 @@ p {
 
 .reviews-form__field {
   margin-bottom: 20px;
+}
+
+.reviews-form__field[data-required] .custom-input__label::after,
+.reviews-form__field[data-required] .custom-textarea__label::after {
+  content: " *";
+  color: #ea2828;
 }
 
 .reviews-form__field--upload {
@@ -1974,6 +1991,7 @@ p {
   text-align: center;
   border-radius: 5px;
   border: 1px dashed #b1b1b1;
+  background-color: #ffffff;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -2167,6 +2185,10 @@ p {
 
   .modal--fit-content .modal__content {
     width: 100%;
+  }
+
+  .reviews-form__field--upload label {
+    min-height: 142px;
   }
 }
 
