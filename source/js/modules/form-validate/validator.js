@@ -231,7 +231,13 @@ export class Validator {
   _validateFile(parent, input) {
     let flag = true;
     const sizeTest = parent.dataset.maxSize && input.files[0] ? input.files[0].size < +parent.dataset.maxSize : true;
-    if (input.value && sizeTest) {
+    let totalSize = 0;
+    for (let i = 0; i < input.files.length; i++) {
+      totalSize += input.files[i].size;
+    }
+    const sizeFullTest = parent.dataset.maxFullSize && input.files ? totalSize < +parent.dataset.maxFullSize : true;
+
+    if (input.value && sizeTest && sizeFullTest) {
       this._setItemValidState(parent, input);
     } else {
       this._setItemInvalidState(parent, input);

@@ -81,8 +81,10 @@
   }
 
   &__img {
-    object-fit: cover;
-    border-radius: $border-radius;
+    img {
+      object-fit: cover;
+      border-radius: $border-radius;
+    }
 
     &:not(:last-child) {
       margin-right: 6px;
@@ -119,6 +121,7 @@
 
   &__replier {
     font-weight: 500;
+    color: $color-nero;
   }
 }
 
@@ -139,6 +142,14 @@
   &__field {
     margin-bottom: $gutter * 2;
 
+    &[data-required] {
+      .custom-input__label::after,
+      .custom-textarea__label::after {
+        content: ' *';
+        color: $color-cinnabar;
+      }
+    }
+
     &--upload {
       flex-direction: column;
       margin-bottom: 0;
@@ -151,6 +162,7 @@
         text-align: center;
         border-radius: $border-radius;
         border: 1px dashed $color-dark-gray;
+        background-color: $color-default-white;
         align-items: center;
         padding: $gutter * 2;
         cursor: pointer;
@@ -159,6 +171,10 @@
         @include hover {
           background-color: $color-alice-blue;
           border-color: $color-dodger-blue;
+        }
+
+        @include vp-768 {
+          min-height: 142px;
         }
       }
 

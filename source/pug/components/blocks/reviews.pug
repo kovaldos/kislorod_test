@@ -71,6 +71,7 @@ mixin reviews()
                                 data-message-base=validation.errorMessage
                             ).reviews-form__field
                         else if field.inputType === "file"
+                            - const ONE_MB = 1048576
                             +custom-input({
                               inputType: "file",
                               inputLabel: field.inputLabel,
@@ -81,7 +82,7 @@ mixin reviews()
                               iconHeight: 40
                             })(
                                 data-validate-type="file",
-                                data-max-size="10485760",
+                                data-max-full-size= ONE_MB * 10,
                                 data-upload="img"
                             ).reviews-form__field.reviews-form__field--upload.input-upload.input-upload--images
                     +btn(form.submit).btn--primary.btn--block
