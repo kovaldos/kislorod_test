@@ -1,17 +1,61 @@
 .btn {
   display: inline-flex;
-  padding: 10px 20px;
-
-  color: $color-default-white;
-
-  background-color: $color-neon-blue;
-  border: none;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: $gutter $gutter * 2;
+  color: inherit;
   cursor: pointer;
+  transition: opacity $trans-default, color $trans-default, background-color $trans-default, border-color $trans-default;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 100%;
+  border: 1px solid;
+  border-radius: $border-radius;
 
-  transition: opacity $trans-default;
+  @include vp-1024 {
+    gap: $gutter * 2;
+  }
 
-  &--red {
-    background-color: $color-torch-red;
+  &--block {
+    width: 100%;
+  }
+
+  &--primary {
+    color: $color-default-white;
+    background-color: $color-dodger-blue;
+    border-color: $color-dodger-blue;
+
+    @include hover {
+      background-color: $color-navy-blue;
+      border-color: $color-navy-blue;
+    }
+
+    &:active {
+      background-color: $color-navy-blue-darken;
+      border-color: $color-navy-blue-darken;
+    }
+  }
+
+  &--reset {
+    background-color: $color-transparent;
+    padding: 0;
+    border-color: $color-transparent;
+    font-size: inherit;
+    line-height: 1;
+  }
+
+  &--empty {
+    background-color: $color-transparent;
+    border-color: $color-dodger-blue;
+    color: $color-dodger-blue;
+    padding: $gutter * 1.5 $gutter * 3;
+    font-size: 16px;
+    line-height: 19px;
+    @include hover {
+      background-color: $color-dodger-blue;
+      color: $color-default-white;
+    }
   }
 
   &:disabled {
@@ -20,7 +64,31 @@
     pointer-events: none;
   }
 
-  @include hover-focus {
-    opacity: 0.8;
+  &__icon {
+    display: inline-flex;
+    color: inherit;
+    flex-shrink: 0;
+
+    &--right {
+      @include vp-1024 {
+        margin-left: $gutter * 1.5;
+      }
+    }
+
+    &--left {
+      margin-right: $gutter *1.5;
+    }
+  }
+
+  &__text {
+    flex-shrink: 0;
+
+    &--uppercase {
+      text-transform: uppercase;
+    }
   }
 }
+
+
+
+

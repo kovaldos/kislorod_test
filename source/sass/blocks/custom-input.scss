@@ -3,57 +3,60 @@
   position: relative;
 
   display: flex;
-  width: 530px;
-  padding: 14px 0 28px 0;
-
-  @media screen and (max-width: 767px) {
-    padding: 4px 0 48px 0;
-    width: 100%;
-  }
+  width: 100%;
 
   label {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
     width: 100%;
-
-    @media screen and (max-width: 767px) {
-      align-items: flex-start;
-      flex-direction: column;
-    }
 
     input,
     textarea {
+      width: inherit;
       flex-grow: 1;
-      max-width: 300px;
-      min-height: 48px;
-      margin-left: auto;
-      padding: 10px;
 
-      border: 2px solid rgba(#000000, 0.2);
+      font-size: 14px;
+      line-height: 100%;
+      font-weight: 500;
+      color: $color-nero;
+
+      border: 1px solid $color-hawkes-blue;
       border-radius: 5px;
       outline: none;
 
       transition: border 0.3s ease;
 
-      @media screen and (max-width: 767px) {
-        max-width: unset;
-        width: 100%;
-      }
-
-      &:hover {
-        border: 2px solid rgba(#000000, 0.5);
-      }
-
+      &:hover,
       &:focus {
-        border: 2px solid rgba(#000000, 0.8);
+        border: 1px solid $color-dodger-blue;
+        box-shadow: 0 0 4px 0 $color-dodger-blue;
       }
+
+      &::placeholder {
+        font-size: 14px;
+        line-height: 100%;
+        font-weight: 500;
+        color: $color-dark-gray;
+      }
+    }
+
+    input:not([type="file"]) {
+      padding: 12px;
+    }
+
+    textarea {
+      min-height: 140px;
+      padding: 15px;
     }
   }
 
   &__label {
-    @media screen and (max-width: 767px) {
-      margin: 0 0 18px 0;
-    }
+    font-size: 12px;
+    line-height: 100%;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: $color-charcoal;
   }
 
   &__error {
@@ -61,36 +64,32 @@
     right: 0;
     bottom: 35px;
 
-    color: #ff1553;
+    //color: $color-cinnabar;
 
     opacity: 0;
 
     transition: opacity 0.3s ease;
-
-    @media screen and (max-width: 767px) {
-      bottom: 20px;
-    }
   }
 
   &.is-invalid {
     input,
     textarea {
-      border: 2px solid #ff1553;
+      border: 1px solid $color-cinnabar;
 
       &:focus,
       &:hover {
-        border: 2px solid rgba(#ff1553, 0.5);
+        border: 1px solid rgba($color-cinnabar, 0.5);
       }
     }
   }
 
   &.is-valid {
     input {
-      border: 2px solid #22b259;
+      border: 1px solid #22b259;
 
       &:focus,
       &:hover {
-        border: 2px solid rgba(#22b259, 0.5);
+        border: 1px solid rgba(#22b259, 0.5);
       }
     }
   }
@@ -98,10 +97,12 @@
   .input-message {
     position: absolute;
     right: 0;
-    bottom: -5px;
+    bottom: -$gutter * 1.5;
+    font-size: 11px;
+    line-height: 100%;
 
     &.is-invalid {
-      color: #ff0000;
+      color: $color-cinnabar;
     }
 
     &.is-valid {

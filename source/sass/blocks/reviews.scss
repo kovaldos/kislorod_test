@@ -1,0 +1,268 @@
+.reviews {
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    @include vp-1280 {
+      flex-direction: row;
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__count {
+    display: inline-block;
+    margin-left: $gutter;
+  }
+
+  &__item {
+    padding: $gutter * 3 0;
+    border-top: 1px solid $color-gainsboro;
+  }
+
+  &__date {
+    color: $color-dark-gray;
+    margin-bottom: $gutter;
+  }
+
+  &__form {
+    @include vp-1280 {
+      flex-basis: 460px;
+      flex-shrink: 0;
+      align-self: baseline;
+      margin-top: 48px;
+      margin-left: $gutter * 3;
+    }
+  }
+}
+
+.review {
+  &__header,
+  &__text {
+    margin-bottom: 24px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__rating {
+    display: flex;
+    margin-bottom: 8px;
+    pointer-events: none;
+  }
+
+  &__star {
+    color: $color-gainsboro;
+    font-size: 18px;
+    line-height: 1;
+    transition: color 0.3s;
+
+    &:not(:last-child) {
+      margin-right: 3px;
+    }
+
+    &.is-active {
+      color: $color-my-sin;
+    }
+  }
+
+  &__text {
+    color: $color-charcoal;
+  }
+
+  &__images {
+    display: flex;
+    margin-bottom: 32px;
+    overflow-x: auto;
+  }
+
+  &__img {
+    object-fit: cover;
+    border-radius: $border-radius;
+
+    &:not(:last-child) {
+      margin-right: 6px;
+    }
+  }
+}
+
+.review-response {
+  display: flex;
+  justify-content: flex-end;
+
+  &__arrow {
+    flex-shrink: 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-white-smoke;
+    max-width: 74.5%;
+    padding: 24px;
+    border-radius: $border-radius;
+    margin-left: $gutter * 2;
+
+    @include vp-1280 {
+      max-width: 91%;
+    }
+  }
+
+  &__text {
+    color: $color-charcoal;
+    margin-bottom: 16px;
+  }
+
+  &__replier {
+    font-weight: 500;
+  }
+}
+
+.reviews-form {
+  position: relative;
+  padding: $gutter * 1.5;
+  background-color: $color-white-smoke-darken;
+  border-radius: $border-radius * 2;
+
+  @include vp-360 {
+    padding: $gutter * 3;
+  }
+
+  &__title {
+    margin-bottom: $gutter * 3;
+  }
+
+  &__field {
+    margin-bottom: $gutter * 2;
+
+    &--upload {
+      flex-direction: column;
+      margin-bottom: 0;
+
+      & label {
+        min-height: 138px;
+        margin-bottom: $gutter * 2;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        border-radius: $border-radius;
+        border: 1px dashed $color-dark-gray;
+        align-items: center;
+        padding: $gutter * 2;
+        cursor: pointer;
+        transition: background-color $trans-default, border-color $trans-default;
+
+        @include hover {
+          background-color: $color-alice-blue;
+          border-color: $color-dodger-blue;
+        }
+      }
+
+      &:has(input.focus-visible) {
+        label {
+          background-color: $color-alice-blue;
+          border-color: $color-dodger-blue;
+        }
+      }
+
+      & .custom-input__icon {
+        margin-bottom: $gutter;
+      }
+
+      & .custom-input__label {
+        font-size: 12px;
+        line-height: 130%;
+        letter-spacing: calc(0.04 * 1em); /* 4% от размера шрифта */
+        color: $color-dark-gray;
+      }
+
+      & .input-upload {
+        &__preview-file-info,
+        &__preview-icon {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__label {
+    display: block;
+    font-size: 12px;
+    line-height: 100%;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: $color-charcoal;
+  }
+
+  &__rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+    &:focus-visible {
+      outline: 1px solid $color-dodger-blue;
+      box-shadow: 0 0 4px 0 $color-dodger-blue;
+      border-radius: $border-radius;
+    }
+
+    label {
+      font-size: 18px;
+      color: $color-gainsboro;
+      cursor: pointer;
+      transition: color 0.3s;
+      margin-right: 3px;
+
+      @include hover {
+        &:hover,
+        &:hover ~ label {
+          color: rgba($color-my-sin, 0.75);
+        }
+      }
+    }
+
+    input[type="radio"]:checked ~ label {
+      color: $color-my-sin;
+    }
+  }
+
+  &__thanks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $gutter * 1.5;
+    text-align: center;
+    transition: opacity $trans-default, visibility $trans-default;
+    background-color: $color-white-smoke-darken;
+    border-radius: inherit;
+
+    @include vp-1280 {
+      padding: $gutter * 3;
+    }
+
+    &--is-hidden {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}
+
+.reviews-form-thanks {
+  &__title {
+    margin-bottom: $gutter * 2;
+  }
+
+  &__text {
+    color: $color-charcoal;
+  }
+}
+

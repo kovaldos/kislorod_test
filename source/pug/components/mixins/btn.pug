@@ -2,8 +2,39 @@ mixin btn(options = {})
   - const tag = options.href ? "a" : "button";
   - const href = options.href || false;
   - const text = options.text || "";
-  - const type = options.type || tag === "button" ? options.type || "button" : false;
+  - const type = options.type || (tag === "button" ? "button" : false);
   - const target = options.isExternal ? "_blank" : false;
   - const rel = options.isExternal ? "nofollow noopener noreferrer" : false;
+  - const hasIcon = options.icon;
+  - const hasText = text.length > 0;
+  - const uppercase = options.uppercase
 
-  #{tag}.btn(href=href, target=target, rel=rel, type=type)&attributes(attributes)!= text
+  if hasIcon && hasText
+    - const icon = options.icon;
+    - const isIconRight = options.isIconRight;
+    - const width = options.w;
+    - const height = options.h;
+    - const iconAttributes = options.iconAttributes || {};
+
+    #{tag}.btn(href=href, target=target, rel=rel, type=type)&attributes(attributes)
+      if isIconRight
+        span.btn__text(class= uppercase ? "btn__text--uppercase" : "")=text
+        span.btn__icon.btn__icon--right
+          +icon(icon, width, height).icon.no-transition
+      else
+        span.btn__icon.btn__icon--left
+          +icon(icon, width, height).icon.no-transition
+        span.btn__text(class= uppercase ? "btn__text--uppercase" : "")=text
+
+
+
+  else if hasIcon
+    - const icon = options.icon;
+    - const width = options.w;
+    - const height = options.h;
+    - const iconAttributes = options.iconAttributes || {};
+
+    #{tag}.btn(href=href, target=target, rel=rel, type=type)&attributes(attributes)
+      +icon(icon, width, height).icon.no-transition
+  else
+    #{tag}.btn(href=href, target=target, rel=rel, type=type, class= uppercase ? "btn__text--uppercase" : "")&attributes(attributes)!=text

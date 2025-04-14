@@ -71,3 +71,11 @@
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
 }
+
+.section {
+  padding: 40px 0;
+
+  @include vp-768 {
+    padding: 80px 0;
+  }
+}

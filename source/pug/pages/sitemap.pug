@@ -10,20 +10,20 @@ block main
   -
     const pages = [
       {
-        name: "UI-kit — ui-kit.html",
-        src: "ui-kit.html"
-      },
-      {
         name: "Главная — index.html",
         src: "index.html"
+      },
+      {
+        name: "Отзывы — reviews.html",
+        src: "reviews.html"
       },
     ]
 
   main
     .sitemap
       .container
-        img(src="https://via.placeholder.com/300x150", width="300", alt="Логотип проекта")
-        h1 Список страниц
+        img(src="https://via.placeholder.com/300x150", width="300", alt="Логотип проекта", style="margin-bottom: 20px")
+        h1(style="margin-bottom: 20px") Список страниц
         ol
           each page in pages
             li
