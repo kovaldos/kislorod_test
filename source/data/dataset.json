@@ -40,7 +40,7 @@
     "fields": [
       {
         "inputType": "text",
-        "inputLabel": "Как вас зовут? *",
+        "inputLabel": "Как вас зовут?",
         "inputPlaceholder": "Иван Иванов",
         "inputName": "name",
         "validation": {
@@ -69,7 +69,7 @@
         "validation": {
           "type": "phone",
           "onInput": true,
-          "errorMessage": "Введите цифры"
+          "errorMessage": "Введите корректный номер телефона"
         }
       },
       {
@@ -87,7 +87,7 @@
       },
       {
         "inputType": "textarea",
-        "inputLabel": "Комментарий *",
+        "inputLabel": "Комментарий",
         "inputPlaceholder": "Введите текст",
         "inputName": "comment",
         "validation": {
@@ -98,7 +98,7 @@
       },
       {
         "inputType": "file",
-        "inputLabel": "Загрузить фотографии. Максимальный вес 10 мегабайт. \nРасширение jpeg, png",
+        "inputLabel": "Загрузить фотографии. Максимальный вес 10 мегабайт. Расширение jpeg, png",
         "inputAccept": "jpeg, png",
         "inputName": "files"
       }
