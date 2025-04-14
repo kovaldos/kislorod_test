@@ -26,7 +26,7 @@ mixin reviews()
                         if review.images.length
                             .review__images
                               each img in review.images
-                                  +img("content", img.image, 'jpg', 90, 120, img.alt).review__img
+                                  +picture("content", img.image, 'jpg', 90, 120, img.alt).review__img
 
                         if review.responseText
                             .review__response.review-response
