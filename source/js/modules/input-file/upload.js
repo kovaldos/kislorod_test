@@ -127,6 +127,7 @@ export class Upload {
   reset() {
     this._uploadBlock.classList.remove('is-invalid');
     this._uploadBlock.classList.remove('is-valid');
+    this._uploadBlock.classList.remove('is-not-empty');
     if (this._dropZoneBlock) {
       this._dropZoneBlock.classList.remove('not-empty');
     }
@@ -156,6 +157,10 @@ export class Upload {
   _onPreviewBlockClick(event) {
     if (!event.target.dataset.fileName) {
       return;
+    }
+
+    if (this._files.length === 1) { // Если осталось одно вложение
+      this._uploadBlock.classList.remove('is-not-empty');
     }
 
     const name = event.target.dataset.fileName;
@@ -224,6 +229,8 @@ export class Upload {
   _onInputChange(event) {
     if (!event.target.files.length) {
       return;
+    } else {
+      this._uploadBlock.classList.add('is-not-empty');
     }
 
     this._files = [...this._files, ...event.target.files].slice(0, this._uploadLength);
