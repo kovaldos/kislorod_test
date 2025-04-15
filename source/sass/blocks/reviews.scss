@@ -28,6 +28,7 @@
   }
 
   &__form {
+    max-width: 460px;
     @include vp-1280 {
       flex-basis: 460px;
       flex-shrink: 0;
@@ -145,18 +146,16 @@
     &[data-required] {
       .custom-input__label::after,
       .custom-textarea__label::after {
-        content: ' *';
+        content: " *";
         color: $color-cinnabar;
       }
     }
 
     &--upload {
       flex-direction: column;
-      margin-bottom: 0;
+      margin-bottom: $gutter * 2;
 
       & label {
-        min-height: 138px;
-        margin-bottom: $gutter * 2;
         display: flex;
         flex-direction: column;
         text-align: center;
@@ -171,10 +170,6 @@
         @include hover {
           background-color: $color-alice-blue;
           border-color: $color-dodger-blue;
-        }
-
-        @include vp-768 {
-          min-height: 142px;
         }
       }
 
@@ -199,6 +194,33 @@
       & .input-upload {
         &__preview-file-info,
         &__preview-icon {
+          display: none;
+        }
+      }
+
+      &.is-not-empty {
+        flex-direction: row;
+        border-radius: $border-radius;
+        border: 1px dashed $color-dark-gray;
+        background-color: $color-default-white;
+        padding: $gutter;
+
+        label {
+          width: 90px;
+          height: 120px;
+          margin-right: 6px;
+          flex-shrink: 0;
+          align-items: center;
+          justify-content: center;
+          border-style: solid;
+          border-color: $color-dodger-blue;
+        }
+
+        .custom-input__icon {
+          margin-bottom: 0;
+        }
+
+        .custom-input__label {
           display: none;
         }
       }
